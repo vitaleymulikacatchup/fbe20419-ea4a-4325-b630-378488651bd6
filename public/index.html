@@ -12,7 +12,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   
-        <script>
+               <script>
         
 (function() {
   if (window.self === window.top) return;
@@ -166,7 +166,7 @@
 
     const buttonClasses = ['btn', 'button', 'cta', 'action-button'];
     const hasButtonClass = buttonClasses.some(cls =>
-      element.classList.contains(cls) || element.classList.contains(\`btn-\${cls}\`)
+      element.classList.contains(cls) || element.classList.contains(`btn-${cls}`)
     );
 
     if (hasButtonClass && element.textContent && element.textContent.trim().length > 0) {
@@ -432,18 +432,18 @@
     const rect = element.getBoundingClientRect();
     const overlay = document.createElement('div');
     overlay.className = 'webild-hover-overlay';
-    overlay.style.cssText = \`
+    overlay.style.cssText = `
       position: fixed !important;
-      top: \${rect.top - 2}px !important;
-      left: \${rect.left - 2}px !important;
-      width: \${rect.width + 4}px !important;
-      height: \${rect.height + 4}px !important;
+      top: ${rect.top - 2}px !important;
+      left: ${rect.left - 2}px !important;
+      width: ${rect.width + 4}px !important;
+      height: ${rect.height + 4}px !important;
       background-color: rgba(90, 113, 230, 0.15) !important;
       border-radius: 4px !important;
       pointer-events: none !important;
       z-index: 999998 !important;
       transition: all 0.15s ease !important;
-    \`;
+    `;
     document.body.appendChild(overlay);
     return overlay;
   };
@@ -464,13 +464,13 @@
     elementTypeLabel = document.createElement('div');
     elementTypeLabel.className = 'webild-element-type-label';
     elementTypeLabel.textContent = elementType;
-    elementTypeLabel.style.cssText = \`
-      left: \${rect.left}px;
-      top: \${rect.top - 32}px;
-    \`;
+    elementTypeLabel.style.cssText = `
+      left: ${rect.left}px;
+      top: ${rect.top - 32}px;
+    `;
     
     if (rect.top < 40) {
-      elementTypeLabel.style.top = \`\${rect.bottom + 4}px\`;
+      elementTypeLabel.style.top = `${rect.bottom + 4}px`;
     }
     
     document.body.appendChild(elementTypeLabel);
@@ -683,7 +683,7 @@
   const getStorageKey = () => {
     const url = new URL(window.location.href);
     const pathParts = url.pathname.split('/').filter(Boolean);
-    return \`webild-changes-\${pathParts.join('-')}\`;
+    return `webild-changes-${pathParts.join('-')}`;
   };
 
   const saveChangeToStorage = (change) => {
@@ -885,7 +885,7 @@
 
         if (isBackground) {
           oldValue = window.getComputedStyle(element).backgroundImage;
-          element.style.backgroundImage = \`url('\${newSrc}')\`;
+          element.style.backgroundImage = `url('${newSrc}')`;
           replaced = true;
         } else if (element.tagName.toLowerCase() === 'img') {
           oldValue = element.src;
@@ -895,7 +895,7 @@
           const hasBackgroundImage = window.getComputedStyle(element).backgroundImage !== 'none';
           if (hasBackgroundImage) {
             oldValue = window.getComputedStyle(element).backgroundImage;
-            element.style.backgroundImage = \`url('\${newSrc}')\`;
+            element.style.backgroundImage = `url('${newSrc}')`;
             replaced = true;
           }
         }
